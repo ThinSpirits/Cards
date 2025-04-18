@@ -1,0 +1,14 @@
+/home/thinspirits101/Cards/CardGame/bin/Debug/net8.0/CardGame
+/home/thinspirits101/Cards/CardGame/bin/Debug/net8.0/CardGame.deps.json
+/home/thinspirits101/Cards/CardGame/bin/Debug/net8.0/CardGame.runtimeconfig.json
+/home/thinspirits101/Cards/CardGame/bin/Debug/net8.0/CardGame.dll
+/home/thinspirits101/Cards/CardGame/bin/Debug/net8.0/CardGame.pdb
+/home/thinspirits101/Cards/CardGame/obj/Debug/net8.0/CardGame.GeneratedMSBuildEditorConfig.editorconfig
+/home/thinspirits101/Cards/CardGame/obj/Debug/net8.0/CardGame.AssemblyInfoInputs.cache
+/home/thinspirits101/Cards/CardGame/obj/Debug/net8.0/CardGame.AssemblyInfo.cs
+/home/thinspirits101/Cards/CardGame/obj/Debug/net8.0/CardGame.csproj.CoreCompileInputs.cache
+/home/thinspirits101/Cards/CardGame/obj/Debug/net8.0/CardGame.dll
+/home/thinspirits101/Cards/CardGame/obj/Debug/net8.0/refint/CardGame.dll
+/home/thinspirits101/Cards/CardGame/obj/Debug/net8.0/CardGame.pdb
+/home/thinspirits101/Cards/CardGame/obj/Debug/net8.0/CardGame.genruntimeconfig.cache
+/home/thinspirits101/Cards/CardGame/obj/Debug/net8.0/ref/CardGame.dll
