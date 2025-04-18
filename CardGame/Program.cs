@@ -98,7 +98,7 @@ namespace CardGame
             // {
             //     Console.WriteLine(deck[i]);
             // }
-
+            System.Console.WriteLine("\nPress any key to exit...");
             Console.ReadLine(); // Wait for user input before closing the console
         }
     }
