@@ -7,6 +7,7 @@ namespace CardGame
     {
         static void Main(string[] args)
         {
+            // TODO: Extract the deck creation into separate method and class
             // Initialize the deck of cards
             List<string> deck = new List<string>();
             string[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
@@ -20,6 +21,7 @@ namespace CardGame
                 }
             }
 
+            // TODO: Extract the shuffling into separate method
             // Shuffle the deck
             Random rand = new Random();
             for (int i = 0; i < deck.Count; i++)
@@ -30,17 +32,14 @@ namespace CardGame
                 deck[j] = temp;
             }
 
-            // Deal 5 cards to the player
-
-            // List<string> playerHand = new List<string>();
-            // for (int i = 0; i < 5; i++)
-            // {
-            //     playerHand.Add(deck[i]);
-            // }
-
-            //Deal all cards to two players
+            //TODO: Extract the dealing into separate method
+            // Deal the cards to two players
             List<string> player1Hand = new List<string>();
             List<string> player2Hand = new List<string>();
+
+
+            //TODO: Get total rounds played and put in proper spot
+            int roundCount = 0;
 
             do
             {
@@ -53,53 +52,80 @@ namespace CardGame
                 }
             }while (deck.Count > 0);
 
-
-            // Each plays one card
-            string player1Card = player1Hand[0];
-            string player2Card = player2Hand[0];
-
-            System.Console.WriteLine($"Player 1 plays: {player1Card}");
-            System.Console.WriteLine($"Player 2 plays: {player2Card}");
-
-            // Determine the rank of the cards played
-            int player1Rank = Array.IndexOf(ranks, player1Card.Split(' ')[0]);
-            int player2Rank = Array.IndexOf(ranks, player2Card.Split(' ')[0]);
+            Console.WriteLine($"Player One has {player1Hand.Count} cards.\nPlayer Two has {player2Hand.Count} cards");
 
 
-            // Determine the winner based on the rank of the cards
-            if (player1Rank > player2Rank)
+
+            //TODO: Extract the game loop into a separate method
+            //TODO: Add a way to exit the game if too many rounds are played
+
+
+            // Game loop
+            do
             {
-                Console.WriteLine("Player 1 wins!");
-            }
-            else if (player1Rank < player2Rank)
+                //TODO: Fix logic for each card being played, should not be a random assignment from the players hand
+
+                // Each plays one card
+
+                Random random = new Random();
+
+                int player1CardIndex = random.Next(player1Hand.Count);
+                int player2CardIndex = random.Next(player2Hand.Count);
+                string player1Card = player1Hand[player1CardIndex];
+                string player2Card = player2Hand[player2CardIndex];
+
+                //System.Console.WriteLine($"Player 1 plays: {player1Card}. Player 2 plays: {player2Card}");
+
+                // Determine the rank of the cards played
+                int player1Rank = Array.IndexOf(ranks, player1Card.Split(' ')[0]);
+                int player2Rank = Array.IndexOf(ranks, player2Card.Split(' ')[0]);
+
+
+                //TODO: Display the cards played and winner of the round in a better format
+                // Determine the winner based on the rank of the cards
+
+                if (player1Rank > player2Rank)
+                {
+                    //Console.WriteLine("Player 1 wins this round!");
+                    player1Hand.Add(player2Card);
+                    player2Hand.Remove(player2Card);
+                }
+                else if (player1Rank < player2Rank)
+                {
+                    //Console.WriteLine("Player 2 wins this round!");
+                    player2Hand.Add(player1Card);
+                    player1Hand.Remove(player1Card);
+                }
+                else
+                {
+                    //TODO: Implement tie logic
+                    //Console.WriteLine("It's a tie!");
+                }
+                Console.WriteLine($"Player One has {player1Hand.Count} cards. Player Two has {player2Hand.Count} cards");
+                roundCount++;
+
+                if (roundCount == 10)
+                {
+                    Console.WriteLine("10 Rounds have passed. Press any key to continue");
+                    Console.ReadKey();
+                    roundCount = 0;
+                }
+
+            } while (player1Hand.Count > 0 && player2Hand.Count > 0);
+
+            // Determine the overall winner
+            if (player1Hand.Count > player2Hand.Count)
             {
-                Console.WriteLine("Player 2 wins!");
+                Console.WriteLine("Player 1 wins the game!");
             }
-            else
+            else if (player1Hand.Count < player2Hand.Count)
             {
-                Console.WriteLine("It's a tie!");
+                Console.WriteLine("Player 2 wins the game!");
             }
 
 
 
-
-
-
-            // Display the player's hand
-            // Console.WriteLine("Player One's hand:");
-            // foreach (string card in player1Hand)
-            // {
-            //     Console.WriteLine(card);
-            // }
-
-            // Display the remaining cards in the deck
-            // Console.WriteLine("\nRemaining cards in the deck:");
-            // for (int i = 5; i < deck.Count; i++)
-            // {
-            //     Console.WriteLine(deck[i]);
-            // }
-            System.Console.WriteLine("\nPress any key to exit...");
-            Console.ReadLine(); // Wait for user input before closing the console
+            Console.WriteLine("\nPress any key to exit...");
         }
     }
 }
