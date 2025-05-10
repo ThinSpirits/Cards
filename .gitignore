@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ProjectEvaluation
+/.vs/Cards/CopilotIndices/17.13.439.2385
+/.vs/Cards/DesignTimeBuild
+/.vs/Cards/FileContentIndex
+*.sqlite
+*.json
+/.vs/Cards/v17/TestStore/0
+/.vs/Cards/v17
